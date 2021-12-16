@@ -14,6 +14,7 @@ buildscript {
         classpath("com.android.tools.build:gradle:7.0.3")
         classpath("io.deepmedia.tools:publisher:0.6.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+        classpath("com.github.dcendents:android-maven-gradle-plugin:2.0")
 
     }
 }
