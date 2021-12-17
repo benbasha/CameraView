@@ -53,7 +53,7 @@ public class SnapshotVideoRecorder extends VideoRecorder implements RendererFram
     private static final int STATE_RECORDING = 0;
     private static final int STATE_NOT_RECORDING = 1;
 
-    private MediaEncoderEngine mEncoderEngine;
+    public MediaEncoderEngine mEncoderEngine;
     private final Object mEncoderEngineLock = new Object();
     private RendererCameraPreview mPreview;
 

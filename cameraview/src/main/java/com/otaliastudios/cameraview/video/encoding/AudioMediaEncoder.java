@@ -40,7 +40,7 @@ public class AudioMediaEncoder extends MediaEncoder {
     private final AudioTimestamp mTimestamp;
     private AudioConfig mConfig;
     private InputBufferPool mInputBufferPool = new InputBufferPool();
-    private final LinkedBlockingQueue<InputBuffer> mInputBufferQueue = new LinkedBlockingQueue<>();
+    public final LinkedBlockingQueue<InputBuffer> mInputBufferQueue = new LinkedBlockingQueue<>();
     private AudioNoise mAudioNoise;
 
     // Just to debug performance.

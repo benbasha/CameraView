@@ -141,7 +141,7 @@ public class CameraView extends FrameLayout implements LifecycleObserver {
     @VisibleForTesting CameraCallbacks mCameraCallbacks;
     private CameraPreview mCameraPreview;
     private OrientationHelper mOrientationHelper;
-    private CameraEngine mCameraEngine;
+    public CameraEngine mCameraEngine;
     private Size mLastPreviewStreamSize;
     private MediaActionSound mSound;
     private AutoFocusMarker mAutoFocusMarker;

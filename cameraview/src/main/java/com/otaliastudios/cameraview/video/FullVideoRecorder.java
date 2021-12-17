@@ -34,7 +34,7 @@ public abstract class FullVideoRecorder extends VideoRecorder {
     private static final String TAG = FullVideoRecorder.class.getSimpleName();
     protected static final CameraLogger LOG = CameraLogger.create(TAG);
 
-    @SuppressWarnings("WeakerAccess") protected MediaRecorder mMediaRecorder;
+    public MediaRecorder mMediaRecorder;
     private CamcorderProfile mProfile;
     private boolean mMediaRecorderPrepared;
 

@@ -53,7 +53,7 @@ public abstract class CameraBaseEngine extends CameraEngine {
     @SuppressWarnings("WeakerAccess") protected CameraPreview mPreview;
     @SuppressWarnings("WeakerAccess") protected CameraOptions mCameraOptions;
     @SuppressWarnings("WeakerAccess") protected PictureRecorder mPictureRecorder;
-    @SuppressWarnings("WeakerAccess") protected VideoRecorder mVideoRecorder;
+    public VideoRecorder mVideoRecorder;
     @SuppressWarnings("WeakerAccess") protected Size mCaptureSize;
     @SuppressWarnings("WeakerAccess") protected Size mPreviewStreamSize;
     @SuppressWarnings("WeakerAccess") protected Size mFrameProcessingSize;
