@@ -310,7 +310,7 @@ public abstract class CameraEngine implements
                     }
                 });
         try {
-            boolean success = latch.await(6, TimeUnit.SECONDS);
+            boolean success = latch.await(2, TimeUnit.SECONDS);
             if (!success) {
                 // This thread is likely stuck. The reason might be deadlock issues in the internal
                 // camera implementation, at least in emulators: see Camera1Engine and Camera2Engine
@@ -321,8 +321,12 @@ public abstract class CameraEngine implements
                 depth++;
                 if (depth < DESTROY_RETRIES) {
                     recreateHandler(true);
-                    LOG.e("DESTROY: Trying again on thread:", mHandler.getThread());
-                    destroy(unrecoverably, depth);
+                    if (mHandler.getThread().isAlive()) {
+                        LOG.e("DESTROY: Trying again on thread:", mHandler.getThread());
+                        destroy(unrecoverably, depth);
+                    } else {
+                        LOG.e("DESTROY: Thread is dead:", mHandler.getThread());
+                    }
                 } else {
                     LOG.w("DESTROY: Giving up because DESTROY_RETRIES was reached.");
                 }
