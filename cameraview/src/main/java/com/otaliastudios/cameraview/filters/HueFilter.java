@@ -96,8 +96,8 @@ public class HueFilter extends BaseFilter implements OneParameterFilter {
     }
 
     @Override
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
-        super.onPreDraw(timestampUs, transformMatrix);
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
+        super.onPreDraw(timestampUs, transformMatrix, textureId);
         // map it on 360 degree circle
         float shaderHue = ((hue - 45) / 45f + 0.5f) * -1;
         GLES20.glUniform1f(hueLocation, shaderHue);

@@ -103,10 +103,10 @@ public class BaseFilterTest extends BaseEglTest {
     public void testDraw_whenInvalid() {
         filter = spy(new TestFilter());
         float[] matrix = new float[16];
-        filter.draw(0L, matrix);
-        verify(filter, never()).onPreDraw(0L, matrix);
-        verify(filter, never()).onDraw(0L);
-        verify(filter, never()).onPostDraw(0L);
+        filter.draw(0L, matrix, mTexture.getId());
+        verify(filter, never()).onPreDraw(0L, matrix, textureId);
+        verify(filter, never()).onDraw(0L, textureId);
+        verify(filter, never()).onPostDraw(0L, textureId);
     }
 
     @Test
@@ -118,9 +118,9 @@ public class BaseFilterTest extends BaseEglTest {
 
         float[] matrix = drawer.getTextureTransform();
         drawer.draw(0L);
-        verify(filter, times(1)).onPreDraw(0L, matrix);
-        verify(filter, times(1)).onDraw(0L);
-        verify(filter, times(1)).onPostDraw(0L);
+        verify(filter, times(1)).onPreDraw(0L, matrix, textureId);
+        verify(filter, times(1)).onDraw(0L, textureId);
+        verify(filter, times(1)).onPostDraw(0L, textureId);
 
         drawer.release();
     }

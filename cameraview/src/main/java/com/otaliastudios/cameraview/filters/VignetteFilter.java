@@ -145,8 +145,8 @@ public class VignetteFilter extends BaseFilter implements TwoParameterFilter {
     }
 
     @Override
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
-        super.onPreDraw(timestampUs, transformMatrix);
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
+        super.onPreDraw(timestampUs, transformMatrix, textureId);
         float[] scale = new float[2];
         if (mWidth > mHeight) {
             scale[0] = 1f;

@@ -116,8 +116,8 @@ public class SharpnessFilter extends BaseFilter implements OneParameterFilter {
     }
 
     @Override
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
-        super.onPreDraw(timestampUs, transformMatrix);
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
+        super.onPreDraw(timestampUs, transformMatrix, textureId);
         GLES20.glUniform1f(scaleLocation, scale);
         Egloo.checkGlError("glUniform1f");
         GLES20.glUniform1f(stepSizeXLocation, 1.0F / width);

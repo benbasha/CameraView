@@ -67,10 +67,11 @@ public interface Filter {
      * Called to render the actual texture. The given transformation matrix
      * should be applied.
      *
-     * @param timestampUs timestamp in microseconds
+     * @param timestampUs     timestamp in microseconds
      * @param transformMatrix matrix
+     * @param textureId
      */
-    void draw(long timestampUs, @NonNull float[] transformMatrix);
+    void draw(long timestampUs, @NonNull float[] transformMatrix, int textureId);
 
     /**
      * Called anytime the output size changes.

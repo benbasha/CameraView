@@ -141,8 +141,8 @@ public class LomoishFilter extends BaseFilter {
     }
 
     @Override
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
-        super.onPreDraw(timestampUs, transformMatrix);
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
+        super.onPreDraw(timestampUs, transformMatrix, textureId);
         float[] scale = new float[2];
         if (width > height) {
             scale[0] = 1f;

@@ -106,8 +106,8 @@ public class SaturationFilter extends BaseFilter implements OneParameterFilter {
     }
 
     @Override
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
-        super.onPreDraw(timestampUs, transformMatrix);
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
+        super.onPreDraw(timestampUs, transformMatrix, textureId);
         if (scale > 0.0f) {
             GLES20.glUniform1f(scaleLocation, 0F);
             Egloo.checkGlError("glUniform1f");

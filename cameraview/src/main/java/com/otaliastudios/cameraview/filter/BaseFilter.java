@@ -152,29 +152,29 @@ public abstract class BaseFilter implements Filter {
     }
 
     @Override
-    public void draw(long timestampUs, @NonNull float[] transformMatrix) {
+    public void draw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
         if (program == null) {
             LOG.w("Filter.draw() called after destroying the filter. " +
                     "This can happen rarely because of threading.");
         } else {
-            onPreDraw(timestampUs, transformMatrix);
-            onDraw(timestampUs);
-            onPostDraw(timestampUs);
+            onPreDraw(timestampUs, transformMatrix, textureId);
+            onDraw(timestampUs, textureId);
+            onPostDraw(timestampUs, textureId);
         }
     }
 
-    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix) {
+    protected void onPreDraw(long timestampUs, @NonNull float[] transformMatrix, int textureId) {
         program.setTextureTransform(transformMatrix);
         program.onPreDraw(programDrawable, programDrawable.getModelMatrix());
     }
 
     @SuppressWarnings("WeakerAccess")
-    protected void onDraw(@SuppressWarnings("unused") long timestampUs) {
+    protected void onDraw(@SuppressWarnings("unused") long timestampUs, int textureId) {
         program.onDraw(programDrawable);
     }
 
     @SuppressWarnings("WeakerAccess")
-    protected void onPostDraw(@SuppressWarnings("unused") long timestampUs) {
+    protected void onPostDraw(@SuppressWarnings("unused") long timestampUs, int textureId) {
         program.onPostDraw(programDrawable);
     }
 

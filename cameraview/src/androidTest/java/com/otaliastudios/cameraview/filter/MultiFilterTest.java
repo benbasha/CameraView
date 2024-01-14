@@ -153,7 +153,7 @@ public class MultiFilterTest extends BaseEglTest {
         verify(filter, atLeastOnce()).getFragmentShader();
         verify(filter, atLeastOnce()).setSize(anyInt(), anyInt());
         verify(filter, times(1)).onCreate(anyInt());
-        verify(filter, times(1)).draw(0L, matrix);
+        verify(filter, times(1)).draw(0L, matrix, mTexture.getId());
         verify(filter, times(1)).onDestroy();
     }
 
@@ -182,7 +182,7 @@ public class MultiFilterTest extends BaseEglTest {
                 // assertTrue(result[0] != 0);
                 return null;
             }
-        }).when(filter1).draw(0L, matrix);
+        }).when(filter1).draw(0L, matrix, mTexture.getId());
 
         // Note: second filter is drawn with the identity matrix!
         doAnswer(new Answer() {
@@ -199,14 +199,14 @@ public class MultiFilterTest extends BaseEglTest {
                 return null;
 
             }
-        }).when(filter2).draw(eq(0L), any(float[].class));
+        }).when(filter2).draw(eq(0L), any(float[].class), mTexture.getId());
 
         drawer.draw(0L);
         drawer.release();
 
         // Verify that both are drawn.
-        verify(filter1, times(1)).draw(0L, matrix);
-        verify(filter2, times(1)).draw(eq(0L), any(float[].class));
+        verify(filter1, times(1)).draw(0L, matrix, mTexture.getId());
+        verify(filter2, times(1)).draw(eq(0L), any(float[].class), mTexture.getId());
     }
 
 }
