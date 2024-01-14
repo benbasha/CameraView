@@ -48,7 +48,7 @@ class CameraActivity : AppCompatActivity(), View.OnClickListener, OptionView.Cal
         CameraLogger.setLogLevel(CameraLogger.LEVEL_VERBOSE)
         camera.setLifecycleOwner(this)
         camera.addCameraListener(Listener())
-        camera.filter = Filter(this)
+//        camera.filter = Filter(this)
         camera.facing = Facing.FRONT
         camera.snapshotMaxHeight = 1920
         camera.snapshotMaxWidth = 1080
